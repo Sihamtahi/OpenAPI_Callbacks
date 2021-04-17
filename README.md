@@ -26,7 +26,8 @@ The pubish part has 3 parts: POST, Links and callbaks. We will detail each one i
               properties:
                 subscriberId: 
                   type: string
-                  example: AAA-123-BBB-45```
+                  example: AAA-123-BBB-45
+   ```
 
                   
                   
@@ -39,7 +40,8 @@ To inform the API that sent the subscription request that its subscription is su
         unsubscribeOp:
           operationId: unsubscribeOperation
               parameters: 
-                Id: $response.body#/subscriberId```
+                Id: $response.body#/subscriberId 
+ ```
 
 
 -  Callback part :
@@ -67,7 +69,8 @@ To inform the API that sent the subscription request that its subscription is su
                      
                 responses:
                   '200':
-                    description: OK ```
+                    description: OK 
+ ```
 
 
 
@@ -78,4 +81,5 @@ To inform the API that sent the subscription request that its subscription is su
       parameters:
         - name: Id
           id: query
-          type: string```
+          type: string
+ ```
