@@ -8,16 +8,8 @@ This part will be divided into several sections to explain the communication pro
 #1- Subscription Process  : 
 The pubish part has 3 parts: POST, Links and callbaks. We will detail each one in the following sections : 
 -  Post part :
-<img src="https://github.com/Sihamtahi/OpenAPI_doc/blob/master/pic_repo/receiveOp.PNG"  >
-```html
-<h2>Example of code</h2>
-
-<pre>
-    <div class="container">
-        <div class="block two first">
-            <h2>Your title</h2>
-            <div class="wrap">
-            post:
+``` 
+post:
       parameters:
         - name: callbackUrl    ### the url where to send 
           in: query
@@ -36,10 +28,7 @@ The pubish part has 3 parts: POST, Links and callbaks. We will detail each one i
                 subscriberId: 
                   type: string
                   example: AAA-123-BBB-456
-            </div>
-        </div>
-    </div>
-</pre>
+ 
 ```
 
                   
