@@ -42,13 +42,13 @@ To inform the API that sent the subscription request that its subscription is su
               parameters: 
                 Id: $response.body#/subscriberId 
  ```
-
+The link section is used here, to link the subscribe operation with the unsubscribe operation. In fact, the "SubscriberId" sent in the subscription operation will be linked the one sent ton unsubscribe. 
 
 -  Callback part :
 
-```callbacks:
-        myEvent:
-          '{$request.query.callbackUrl}?event={$request.query.event}':  #https://monserveur.com/NvlOperation
+```callbacks:     
+        myEvent:    ### The event Name
+          '{$request.query.callbackUrl}?event={$request.query.event}':  # a  The callback URL ||  https://monserveur.com/NvlOperation
             post:
               requestBody:
                 content:
@@ -59,7 +59,7 @@ To inform the API that sent the subscription request that its subscription is su
                 '200':
                   description: OK
             
-            '{$request.query.callbackUrl}?event={$request.query.event}?id': ##https://monserveur.com/NvlOperation/15
+            '{$request.query.callbackUrl}?event={$request.query.event}?id': ## an other callback URL || https://monserveur.com/NvlOperation/15
             post:
               requestBody:
                 content:
@@ -71,10 +71,12 @@ To inform the API that sent the subscription request that its subscription is su
                   '200':
                     description: OK 
  ```
+Callbacks are defined inside Operation section (operations such as  POST, GET, PUT ...)
+In the Callback section, we name each callback, here there is only one callback named "myEvent". 
+Under the name of the callback, we put the callback URL to which we send the information. We can see that the URL is built from the parameters already sent by the subscribed API.
+Moreover, we can define for each callback one or more messages (in our case there are two messages) with different callback URLs and structures.
 
-
-
-#1- unsubscribe Process  : 
+#2- unsubscribe Process  : 
 ``` /unsubscribe:
     operationId: unsubscribeOperation
     post:
@@ -83,3 +85,4 @@ To inform the API that sent the subscription request that its subscription is su
           id: query
           type: string
  ```
+ To unsubscribe, the API makes a POST communicating the subscription identifier already delivered 
