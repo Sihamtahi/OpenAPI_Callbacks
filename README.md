@@ -6,8 +6,8 @@ This part will be divided into several sections to explain the communication pro
 
 
 #1- Subscription Process  : 
-The pubish part has 3 parts: POST, Links and callbaks. We will detail each one in the following sections : 
--  Post part :
+The pubish part has  POST operation which contain parameters & responses, Links and callbaks. We will detail each one in the following sections : 
+-  parameters & responses part :
 ``` post:
       parameters:
         - name: callbackUrl    ### the url where to send 
