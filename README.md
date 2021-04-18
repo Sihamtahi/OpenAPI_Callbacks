@@ -8,7 +8,8 @@ This part will be divided into several sections to explain the communication pro
 #1- Subscription Process  : 
 The pubish part has  POST operation which contain parameters & responses, Links and callbaks. We will detail each one in the following sections : 
 -  parameters & responses part :
-``` post:
+```
+    post:
       parameters:
         - name: callbackUrl    ### the url where to send 
           in: query
@@ -36,7 +37,8 @@ The API wanting to subscribe will first send a callback URL ("callbaclUrl") and 
 To inform the API that sent the subscription request that its subscription is successful, we send a subscription code in the responses. This code will be used in the unsubscribe operation. 
 
 -  Links part :
-```links:  # Link the returned id with the unsubscribe operation
+```
+    links:  # Link the returned id with the unsubscribe operation
         unsubscribeOp:
           operationId: unsubscribeOperation
               parameters: 
@@ -46,7 +48,8 @@ The link section is used here, to link the subscribe operation with the unsubscr
 
 -  Callback part :
 
-```callbacks:     
+```
+    callbacks:     
         myEvent:    ### The event Name
           '{$request.query.callbackUrl}?event={$request.query.event}':  # a  The callback URL ||  https://monserveur.com/NvlOperation
             post:
@@ -77,7 +80,8 @@ Under the name of the callback, we put the callback URL to which we send the inf
 Moreover, we can define for each callback one or more messages (in our case there are two messages) with different callback URLs and structures.
 
 #2- unsubscribe Process  : 
-``` /unsubscribe:
+``` 
+  /unsubscribe:
     operationId: unsubscribeOperation
     post:
       parameters:
